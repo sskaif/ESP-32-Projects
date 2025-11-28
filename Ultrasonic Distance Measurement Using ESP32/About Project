@@ -1,0 +1,32 @@
+📏✨ ESP32 Based Ultrasonic Distance Measurement System
+
+This project demonstrates a real-time distance measurement system using an Ultrasonic Sensor and ESP32 microcontroller 🚀. The system measures the distance of an object by sending and receiving ultrasonic sound waves and displays the result on the Serial Monitor 📟.
+The complete project is designed and tested in the Wokwi online simulator 💻, making it easy to test without physical hardware. This type of system is widely used in smart automation, robotics, safety systems, and IoT applications 🤖🌐.
+The ESP32 controls the ultrasonic sensor using two GPIO pins:
+
+✅ Trigger Pin – Sends the ultrasonic pulse
+✅ Echo Pin – Receives the reflected signal
+
+The distance is calculated using the speed of sound principle and is displayed in centimeters (cm).
+⚙️📡 Working Principle of the Ultrasonic Sensor
+
+The ultrasonic sensor works based on the Echo Reflection Method 🔁:
+
+1️⃣ The ESP32 sends a 10 microsecond HIGH pulse to the Trigger pin ⚡
+2️⃣ The sensor generates ultrasonic sound waves (40 kHz) 📢
+3️⃣ These waves travel through air and hit an object 🎯
+4️⃣ The waves get reflected back toward the sensor 🔊
+5️⃣ The Echo pin receives the signal, and ESP32 measures the time using the pulseIn() function ⏱️
+6️⃣ The distance is calculated using the formula:
+
+📐 Distance = (Time × Speed of Sound) / 2
+The time is divided by 2 because the sound travels to the object and back 🔄.
+
+🎯✅ Key Learning Outcomes
+Understanding the working of ultrasonic sensors
+Practical use of ESP32 GPIO pins 🔌
+Real-time distance calculation using timing ⏳
+Working with Serial Monitor output 🖥️
+Simulation and debugging using Wokwi 💻
+
+Robotics & automation projects ⚙️
