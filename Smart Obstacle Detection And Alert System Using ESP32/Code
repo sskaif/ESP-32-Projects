@@ -1,0 +1,42 @@
+#define trigpin 14
+#define echopin 12
+
+int ledpin = 16;
+int relaypin = 2;
+int buzzerpin = 4;
+
+
+
+void setup() {
+
+  pinMode(trigpin, OUTPUT);
+  pinMode(echopin, INPUT);
+  pinMode(16, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(4, OUTPUT);
+
+
+  
+}
+
+void loop() {
+  digitalWrite(trigpin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigpin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigpin, LOW);
+  long duration = pulseIn(echopin,HIGH);
+  float distance = (duration*0.0343)/2;
+
+if(distance < 100){
+  digitalWrite(ledpin,1);
+  digitalWrite(relaypin,1);
+  digitalWrite(buzzerpin,1);
+}
+else{
+  digitalWrite(ledpin,0);
+  digitalWrite(relaypin,0);
+  digitalWrite(buzzerpin,0);
+}
+delay(500);  
+}
