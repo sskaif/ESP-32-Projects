@@ -1,0 +1,23 @@
+#include<ezButton.h>
+
+
+int ledPin = 14;
+int buttonPin = 12;
+
+ezButton button(12);
+
+void setup() {
+  pinMode(14, OUTPUT);
+  button.setDebounceTime(50);
+
+}
+
+void loop() {
+  button.loop();
+  if(button.isPressed()){
+    digitalWrite(14,1);
+  }
+  else{
+    digitalWrite(14,0);
+  }
+}
