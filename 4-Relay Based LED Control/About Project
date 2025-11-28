@@ -1,0 +1,29 @@
+🔌 4-Relay Based LED Control Using ESP32 (Wokwi Simulation)
+
+This project demonstrates how four LEDs are independently controlled using four relays interfaced with an ESP32 microcontroller 🧠⚡. The entire system is designed and tested using the Wokwi online simulator, making it easy to learn and debug without physical hardware.
+
+Each relay acts as an electrically isolated switch 🔄 that safely controls one LED. The ESP32 sends digital ON/OFF signals to the relay module, allowing each LED to be switched independently. This project helps in understanding relay interfacing, digital output control, and multi-channel switching systems.
+
+The logic is written in Arduino IDE for ESP32, where different GPIO pins are assigned to the relays. By changing the output states in the code, the LEDs can be turned ON or OFF accordingly ✅❌.
+
+🎯 Key Learning Outcomes
+
+Understanding relay working principle
+
+Practical use of ESP32 GPIO pins
+
+Multiple load control using a single controller
+
+Simulation and debugging using Wokwi 💻
+
+Real-world application in home automation & industrial control 🏠🏭
+
+🚀 Applications
+
+Home automation systems
+
+Electrical load switching
+
+Smart control panels
+
+Industrial automation basics
