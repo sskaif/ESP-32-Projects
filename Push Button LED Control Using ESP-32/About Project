@@ -1,0 +1,26 @@
+🔘💡 ESP32 Based Button Controlled LED System
+This project demonstrates a simple digital control system where an LED is controlled using a push button with an ESP32 microcontroller 🧠⚡. When the button is pressed, the LED turns ON, and when the button is released, the LED turns OFF ✅❌.
+The project uses the ezButton library to handle button debouncing 🛠️, which avoids false triggering caused by mechanical noise in the push button. This makes the system stable, accurate, and reliable ✅.
+
+⚙️🔁 Working Principle
+
+1️⃣ The push button acts as an input device 🔘
+2️⃣ When the button is pressed, the ezButton library detects the press event ✅
+3️⃣ The ESP32 then sends a HIGH signal to the LED pin ⚡
+4️⃣ The LED turns ON immediately 💡
+5️⃣ When the button is released, the ESP32 sends a LOW signal, and the LED turns OFF ❌
+6️⃣ The debounce time of 50 ms ensures clean and noise-free operation ⏱️
+
+🚦💡 System Behavior
+
+🔘 Button Pressed → ✅ LED ON 💡
+✋ Button Released → ❌ LED OFF
+
+This makes the system simple, fast, and fully responsive 🤖✅.
+
+🎯✅ Key Learning Outcomes
+Understanding digital input using push button
+Controlling digital output (LED) 💡
+Using ezButton library for debouncing ⏱️
+Practical use of ESP32 GPIO pins 🔌
+Basic embedded system I/O control
