@@ -1,0 +1,39 @@
+🚨📏 ESP32 Based Smart Obstacle Detection & Alert System
+
+This project demonstrates a smart distance-based alert system using an Ultrasonic Sensor and ESP32 microcontroller 🧠⚡. The system continuously measures the distance of an object and automatically activates a LED 💡, Relay 🔌, and Buzzer 🔊 when the object comes within a predefined range.
+The ESP32 acts as the main controller, sending trigger pulses to the ultrasonic sensor and calculating the distance using the speed of sound principle. When the measured distance becomes less than 100 cm, the system immediately turns ON the LED, Relay, and Buzzer as a warning signal 🚨.
+This project is designed and tested using the Wokwi Simulator 💻, making it easy to test and debug without physical hardware. It is highly useful for security systems, automation, and safety projects.
+⚙️📡 Working of the Ultrasonic Sensor
+
+The ultrasonic sensor works on the echo reflection principle 🔁:
+
+1️⃣ ESP32 sends a 10 microsecond HIGH pulse to the Trigger pin ⚡
+2️⃣ The sensor emits ultrasonic sound waves (40 kHz) 📢
+3️⃣ These waves travel through air and hit an object 🎯
+4️⃣ The sound waves reflect back to the sensor 🔊
+5️⃣ The Echo pin receives the signal, and ESP32 measures the time using pulseIn() ⏱️
+6️⃣ The distance is calculated using the formula:
+
+📐 Distance = (Time × Speed of Sound) / 2
+Since the sound travels to the object and back, the time is divided by 2 🔄.
+
+🚦💡 System Behavior (Automatic Control)
+
+📏 If Distance < 100 cm
+✅ LED turns ON 💡
+✅ Relay turns ON 🔌
+✅ Buzzer starts Alert Sound 🔊
+
+📏 If Distance > 100 cm
+❌ LED OFF
+❌ Relay OFF
+❌ Buzzer OFF
+This makes the system fully automatic and smart 🤖✅.
+
+🎯✅ Key Learning Outcomes
+Understanding ultrasonic sensor working
+Practical use of ESP32 GPIO pins 🔌
+Interfacing LED, Relay & Buzzer
+Real-time distance calculation ⏳
+
+Simulation & debugging using Wokwi 💻
