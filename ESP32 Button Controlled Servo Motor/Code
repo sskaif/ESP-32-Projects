@@ -1,0 +1,35 @@
+#include<ESP32Servo.h>
+#include<ezButton.h>
+
+int servoPin = 21;
+int buttonPin = 26;
+
+Servo  myservo;
+ezButton button(buttonPin);
+
+int angle = 0;
+
+
+void setup() {
+
+  myservo.attach(servoPin);
+  myservo.write(angle);
+  button.setDebounceTime(50);
+  
+}
+
+void loop() {
+
+  button.loop();
+
+  if(button.isPressed()){
+    if(angle==0){
+      angle=90;
+    }
+    else if(angle==90){
+      angle=0;
+    }
+    myservo.write(angle);
+  }
+ 
+}
