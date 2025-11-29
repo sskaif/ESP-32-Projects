@@ -1,0 +1,30 @@
+🔘⚙️ ESP32 Based Push Button Controlled Servo Motor System
+This project demonstrates a push button controlled servo motor system using an ESP32 microcontroller 🧠⚡. With every button press, the servo motor rotates between 0° and 90°, allowing precise and automatic position control 🔄.
+The project uses the ESP32Servo library to control the servo motor and the ezButton library for clean and noise-free button input (debouncing) 🛠️. This ensures stable and reliable operation ✅.
+
+⚙️🔁 Working Principle
+
+1️⃣ The push button acts as an input device 🔘
+2️⃣ When the button is pressed, the ezButton library detects the press event ✅
+3️⃣ The ESP32 checks the current angle of the servo motor ⚙️
+4️⃣ If the servo is at 0°, it rotates to 90° 📐
+5️⃣ If the servo is at 90°, it rotates back to 0° 🔄
+6️⃣ The servo motor position is updated using the myservo.write(angle) command
+7️⃣ The debounce time of 50 ms ensures smooth and error-free operation ⏱️
+
+This creates a toggle-based smart servo control system 🤖✅.
+
+🚦🎯 System Behavior
+
+🔘 First Button Press → Servo moves to 90° 📐
+🔘 Next Button Press → Servo returns to 0° 🔄
+➡️ The process repeats with every button press
+
+🎯✅ Key Learning Outcomes
+
+Interfacing servo motor with ESP32 ⚙️
+Using PWM for angle control 📡
+Controlling devices using a push button input 🔘
+Learning button debouncing using ezButton ⏱️
+
+Practical use of ESP32 GPIO pins 🔌
