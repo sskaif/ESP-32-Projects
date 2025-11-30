@@ -1,0 +1,50 @@
+📶📟 ESP32 WiFi Connection Status Indicator Using LCD & LEDs
+
+This project demonstrates a smart WiFi connection status system using an ESP32 microcontroller, 16×2 I2C LCD display, and two LEDs 💡🔴🔵.
+The system visually shows the WiFi connection process and status using LEDs and also displays the IP address on the LCD screen after successful connection 🌐✅.
+
+🧠⚡ How the System Works
+
+The ESP32 acts as the brain of the system 🧠
+The board tries to connect to a WiFi network (Wokwi-GUEST) 📡
+
+While connecting:
+Red LED blinks 🔴
+LCD shows “Connecting…” ⏳
+Once connected:
+Blue LED turns ON 🔵
+LCD shows “Connected” ✅
+
+The IP Address is displayed on the LCD 🌐
+
+🚦💡 LED Status Indication Logic
+
+🔴 Red LED Blinking
+➡️ WiFi is trying to connect
+
+🔵 Blue LED ON
+➡️ WiFi is successfully connected ✅
+
+This makes the system easy to understand even without a computer 👀✅
+
+📟🌐 LCD Display Operation
+The 16×2 LCD shows:
+Line 1: Connection status (Connecting... / Connected)
+Line 2: ESP32 local IP address (after connection)
+This helps in real-time network monitoring 📊✅
+
+🎯✅ Key Learning Outcomes
+
+✅ ESP32 WiFi connection using WiFi.h
+✅ Understanding Station Mode (WIFI_STA)
+✅ Displaying IP address on LCD
+✅ LED-based status indication system 💡
+✅ I2C communication with ESP32
+✅ IoT project fundamentals 🌐
+
+🏠🌐 Applications
+
+🔹 IoT Device Network Status Monitor
+🔹 Smart Home WiFi Connection Indicator 🏠
+🔹 Embedded Networking Projects
+🔹 Beginner-Friendly IoT Learning System
