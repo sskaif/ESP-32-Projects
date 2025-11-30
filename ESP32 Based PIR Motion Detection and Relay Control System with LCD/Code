@@ -1,0 +1,39 @@
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27,16,2);
+
+#define PIRpin 12
+#define Relaypin 15
+
+void setup() {
+ pinMode(PIRpin, INPUT);
+ pinMode(Relaypin, OUTPUT);
+ lcd.init();
+ lcd.backlight();
+}
+
+void loop() {
+  int PIRvalue = digitalRead(PIRpin);
+
+  if(PIRvalue==1){
+    digitalWrite(Relaypin,1);
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("PIR value ");
+    lcd.setCursor(12,0);
+    lcd.print(PIRvalue);
+    lcd.setCursor(0,1);
+    lcd.print("Relay ON");
+  }
+  else{
+    digitalWrite(Relaypin,0);
+     lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("PIR value ");
+    lcd.setCursor(12,0);
+    lcd.print(PIRvalue);
+    lcd.setCursor(0,1);
+    lcd.print("Relay OFF");
+  }
+  delay(1000);
+ 
+}
