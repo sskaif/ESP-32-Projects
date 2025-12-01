@@ -1,0 +1,19 @@
+int potPin = 34;
+int ledPin = 17;
+
+
+void setup() {
+  pinMode(potPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+
+ 
+}
+
+void loop() {
+
+  int potValue = analogRead(potPin);
+  int ledBrightness = map (potValue,0,4095,0,255);
+  analogWrite(ledPin,ledBrightness);
+  delay(100);
+
+}
