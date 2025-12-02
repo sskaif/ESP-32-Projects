@@ -1,0 +1,61 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define xpixel 128
+#define ypixel 64
+
+Adafruit_SSD1306 oled(xpixel, ypixel, &Wire, -1);
+
+#define trig 14
+#define echo 12
+
+void setup() {
+
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  Serial.begin(115200);
+
+  //  OLED initialization
+  if (!oled.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("OLED Not Working"));
+    while (1);
+  }
+
+  oled.clearDisplay();
+  oled.setTextSize(1);
+  oled.setTextColor(WHITE);
+  oled.setCursor(10, 20);
+  oled.print("System Ready");
+  oled.display();
+}
+
+void loop() {
+
+  //  Trigger ultrasonic pulse
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  //  Read echo
+  long duration = pulseIn(echo, HIGH);
+  long distance = (duration * 0.0343) / 2;
+
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  //  Display on OLED
+  oled.clearDisplay();
+  oled.setTextSize(1);
+  oled.setTextColor(WHITE);
+  oled.setCursor(10, 20);
+  oled.print("Distance in CM");
+  oled.setCursor(10, 35);
+  oled.print(distance);
+  oled.display();
+
+  delay(500);
+}
