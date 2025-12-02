@@ -1,0 +1,19 @@
+#include <ESP32Servo.h>
+
+Servo myServo;
+int servoPin=23;
+int ldrPin=34;
+
+
+void setup() {
+  myServo.attach(servoPin);
+  
+}
+
+void loop() {
+  int ldrValue=analogWrite(ldrPin);
+  int angle=map(ldrPin.0,4095,0,180);
+  myServo.write(angle);
+  delay(100);
+
+}
