@@ -1,0 +1,46 @@
+#include "DHTesp.h"
+DHTesp dht;
+
+int ldrPin = 34;       // Sunlight sensor
+int soilPin = 35;      // Potentiometer as soil moisture
+int fanPin = 16;       // Fan LED
+int pumpPin = 17;      // Water Pump LED
+int lightPin = 2;      // Grow Light LED
+int dhtPin = 21;       // DHT22
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(fanPin, OUTPUT);
+  pinMode(pumpPin, OUTPUT);
+  pinMode(lightPin, OUTPUT);
+
+  dht.setup(dhtPin, DHTesp::DHT22);
+}
+
+void loop() {
+  // 🌡️ Temperature control
+  TempAndHumidity data = dht.getTempAndHumidity();
+  float temp = data.temperature;
+  if (!isnan(temp)) {
+    if(temp > 30) digitalWrite(fanPin, HIGH);
+    else digitalWrite(fanPin, LOW);
+  }
+
+  // 💧 Soil moisture control
+  int soilValue = analogRead(soilPin);
+  if(soilValue < 2000) digitalWrite(pumpPin, HIGH);
+  else digitalWrite(pumpPin, LOW);
+
+  // 🌞 Light control
+  int ldrValue = analogRead(ldrPin);
+  if(ldrValue < 2000) digitalWrite(lightPin, HIGH);
+  else digitalWrite(lightPin, LOW);
+
+  // Serial output for monitoring
+  Serial.print("Temp: "); Serial.print(temp);
+  Serial.print(" | Soil: "); Serial.print(soilValue);
+  Serial.print(" | Light: "); Serial.println(ldrValue);
+
+  delay(1000);
+}
