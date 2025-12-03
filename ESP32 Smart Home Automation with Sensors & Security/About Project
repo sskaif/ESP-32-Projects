@@ -1,0 +1,23 @@
+🏠🔒 ESP32 Offline Smart Home Automation with Night Security & Environmental Control
+This project is a fully offline smart home system using ESP32 🤖 and various sensors to automate lights, fan, and security.
+It works without WiFi, making it reliable anywhere ⚡.
+
+🌙 Auto Night Light
+
+The LDR sensor 🌞➡🌙 detects ambient light
+Turns outside light ON 💡 automatically at night
+Turns OFF during the day ☀️
+
+🌡️ Temperature-Based Fan Control
+
+The DHT22 sensor 🌡️ reads temperature
+If temperature > 30°C 🥵 → Fan 🌀 turns ON
+If temperature ≤ 30°C 😌 → Fan turns OFF
+
+🚨 Night Security Alert
+
+The PIR motion sensor 🕵️ detects movement
+Works only at night 🌙
+Activates buzzer 🔔 to alert intruders
+
+Sends instant alert to Serial Monitor 🖥️
