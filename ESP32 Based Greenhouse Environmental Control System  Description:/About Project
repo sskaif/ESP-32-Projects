@@ -1,0 +1,57 @@
+🌱 ESP32 Greenhouse Automation System
+A smart Greenhouse Automation System using ESP32 that automatically controls a fan, water pump, and grow light based on real-time sensor values. The project is fully offline and simulated using Wokwi.
+
+🚀 Project Overview
+This project monitors key environmental parameters required for plant growth and automatically takes action:
+
+🌡️ Temperature → Controls the cooling fan
+💧 Soil Moisture (via Potentiometer) → Controls the water pump
+🌞 Light Intensity (via LDR) → Controls the grow light
+The system reduces manual effort and helps maintain optimal conditions inside a greenhouse.
+
+🔧 Components Used
+
+ESP32 Dev Board
+DHT22 Temperature & Humidity Sensor
+LDR (Light Dependent Resistor)
+Potentiometer (Soil Moisture Simulation)
+LEDs (Fan, Pump, Grow Light indicators)
+
+Wokwi Simulator
+
+⚙️ Working Principle
+🌡️ Temperature-Based Fan Control
+
+The DHT22 sensor continuously measures temperature.
+If temperature > 30°C, the fan turns ON 🌀
+If temperature ≤ 30°C, the fan turns OFF
+💧 Soil Moisture-Based Water Pump
+A potentiometer simulates soil moisture
+If soil value is low (dry) → pump turns ON 💦
+If soil value is high (wet) → pump turns OFF
+
+🌞 Light-Based Grow Light Control
+
+The LDR detects light intensity.
+If light is low (night/dark) → grow light turns ON 💡
+If light is sufficient (day) → grow light turns OFF
+
+🖥️ Simulation & Testing
+
+The complete project is tested using Wokwi Online Simulator
+Sensor values can be adjusted in real-time
+Output status is visible through LED indicators and Serial Monitor
+
+✅ Key Features
+
+Fully automatic greenhouse environment control
+Works completely offline (no WiFi required)
+Real-time sensor monitoring
+Ideal for smart agriculture, IoT learning, and embedded systems practice
+
+📌 Future Improvements (Optional)
+Add IoT cloud monitoring
+Display readings on LCD/OLED
+Add GSM alerts for temperature or pump status
+
+Real motor & water pump integration using relay
