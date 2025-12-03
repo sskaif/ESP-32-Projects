@@ -1,0 +1,62 @@
+#include "DHTesp.h"
+DHTesp dht;
+
+// -------- PINS --------
+int ldrPin = 34;     // LDR
+int lightPin = 2;    // Outside light LED
+
+int dhtPin = 21;     // DHT22 DATA
+int fanPin = 16;     // Fan LED / Relay
+
+int pirPin = 27;     // PIR
+int buzzerPin = 4;   // Buzzer
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(lightPin, OUTPUT);
+  pinMode(fanPin, OUTPUT);
+  pinMode(pirPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  dht.setup(dhtPin, DHTesp::DHT22);
+}
+
+void loop() {
+  //  Auto Night Light
+  int ldrValue = analogRead(ldrPin);
+  bool isNight = (ldrValue < 2000);
+  Serial.print("LDR: ");
+  Serial.println(ldrValue);
+
+  if (isNight)
+    digitalWrite(lightPin, HIGH);
+  else
+    digitalWrite(lightPin, LOW);
+
+  // Fan control
+  TempAndHumidity data = dht.getTempAndHumidity();
+  if (!isnan(data.temperature)) {
+    float temp = data.temperature;
+    Serial.print("Temp: ");
+    Serial.println(temp);
+
+    if (temp > 30)
+      digitalWrite(fanPin, HIGH);
+    else
+      digitalWrite(fanPin, LOW);
+  } else {
+    Serial.println("DHT ERROR");
+  }
+
+  //  Night Security
+  int motion = digitalRead(pirPin);
+  if (isNight && motion == 1) {
+    digitalWrite(buzzerPin, HIGH);
+    Serial.println(" INTRUDER DETECTED!");
+  } else {
+    digitalWrite(buzzerPin, LOW);
+  }
+
+  delay(1000);
+}
