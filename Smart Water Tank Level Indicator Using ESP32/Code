@@ -1,0 +1,82 @@
+#include <LiquidCrystal_I2C.h>
+
+#define trigPin 14
+#define echoPin 12
+
+//  LED Pins
+#define redLED    25   // < 20%
+#define yellowLED 26   // ~ 50%
+#define greenLED  27   // ~ 80%
+
+#define buzzer 4
+#define tankDepth 50   // Tank depth in cm
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+void setup() {
+  Serial.begin(115200);
+
+  lcd.init();
+  lcd.backlight();
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  pinMode(redLED, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop() {
+
+  //  Ultrasonic Trigger
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duration = pulseIn(echoPin, HIGH);
+  int distance = (duration * 0.0343) / 2;
+
+  //  Water Level %
+  int waterLevel = tankDepth - distance;
+  if (waterLevel < 0) waterLevel = 0;
+  if (waterLevel > tankDepth) waterLevel = tankDepth;
+
+  int percentage = map(waterLevel, 0, tankDepth, 0, 100);
+
+  //  LCD Display (ONLY Percentage)
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Water Level");
+  lcd.setCursor(0, 1);
+  lcd.print(percentage);
+  lcd.print(" %");
+
+  //  LED LOGIC
+  if (percentage < 20) {
+    //  LOW WATER
+    digitalWrite(redLED, HIGH);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(greenLED, LOW);
+    digitalWrite(buzzer, HIGH);
+  } 
+  else if (percentage >= 20 && percentage < 80) {
+    //  MEDIUM WATER
+    digitalWrite(redLED, LOW);
+    digitalWrite(yellowLED, HIGH);
+    digitalWrite(greenLED, LOW);
+    digitalWrite(buzzer, LOW);
+  } 
+  else {
+    //  FULL WATER (80%+)
+    digitalWrite(redLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(greenLED, HIGH);
+    digitalWrite(buzzer, HIGH);  // Optional buzzer at full level
+  }
+
+  delay(1000);
+}
