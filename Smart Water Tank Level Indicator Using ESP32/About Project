@@ -1,0 +1,52 @@
+💧 Real-Time Water Level Percentage Display Using ESP32 & Ultrasonic Sensor
+
+This project demonstrates a smart water tank monitoring system using an ESP32 🧠 and HC-SR04 ultrasonic sensor 📡. 
+The system continuously measures water level and calculates the percentage full 📊.
+Visual and audio alerts notify users of water level conditions, making it perfect for home or industrial water tank monitoring 🏠🏭.
+
+⚡ Components Used
+
+ESP32 Dev Board 🧠
+
+Ultrasonic Sensor (HC-SR04) 📡
+16×2 I2C LCD 📟
+LEDs (Red 🔴, Yellow 🟡, Green 🟢)
+Buzzer 🔔
+220Ω resistors
+Wires & Breadboard
+
+🔧 Working of the System
+
+1️⃣ ESP32 triggers the ultrasonic sensor ⚡
+2️⃣ Sensor emits ultrasonic waves that bounce off the water surface 🎯
+3️⃣ The Echo pin receives the reflected signal 🔊
+4️⃣ ESP32 calculates distance to water surface using the speed of sound 📏
+5️⃣ Converts distance into water level percentage (0–100%) 🔄
+
+💡 Visual & Audio Indicators
+Water Level	Indicator
+< 20%	🔴 Red LED ON (Low Water)
+20–79%	🟡 Yellow LED ON (Medium Water)
+≥ 80%	🟢 Green LED ON + 🔔 Buzzer (Full Tank)
+📟 LCD Display
+
+Displays only water level percentage in real-time.
+
+Example:
+Water Level
+65 %
+
+✅ Key Features & Learning Outcomes
+
+Real-time water level monitoring using ultrasonic sensor 🌊
+LED indicators & buzzer alerts for visual/audio feedback 💡🔊
+ESP32 GPIO control and embedded programming practice 🧠
+I2C LCD interfacing for real-time data display 📟
+Tested and simulated on Wokwi 💻
+
+🎯 Applications
+
+Home water tank monitoring 🏠
+Industrial tank level automation 🏭
+IoT-based water management projects 🌐
+Smart home or safety alert systems 🚨
